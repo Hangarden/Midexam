@@ -1,0 +1,36 @@
+<html>
+<head>
+   <title>{% block title %}The Great Django Blog{% endblock %}</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav">
+        <li><a href="{%url 'home'%}">Home</a></li>
+        <li><a href="{%url 'author'%}">Contact</a></li>
+        <li><a href="/list_music">Music Management</a></li>
+        </ul>
+    </nav>
+<div class="container">
+<h1> New / Update Music</h1>
+
+<form method="POST">
+  {% csrf_token %}
+      <label>Music Name</label> {{ form.music_name}} </br>
+      <label>Music Brand</label>  {{ form.music_brand}} </br>
+      <label>Music Price</label>  {{ form.music_price }} </br>
+      <label>Music Buy Date</label>  {{ form.music_buy_date }} </br>
+      <label>Music Producer</label>  {{ form.music_producer }} </br>
+      <label>Music Quantity</label>  {{ form.music_quantity }} </br>
+  <button class="btn btn-default" type="submit">Save</button>
+  <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
+</form>
+
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>
